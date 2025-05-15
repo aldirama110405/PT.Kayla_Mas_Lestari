@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PT. Kayla Mas Lestari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+ body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #0f2d2d, #122f2f), url('construction-site.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ecfdf5;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(15, 45, 45, 0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.navbar .brand img {
+  height: 60px;
+}
+
+.navbar .brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #ffd580;
+  font-size: 22px;
+  margin: 0;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #a7f3d0;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease, background 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background: #064e3b;
+  color: #ffffff;
+}
+
+.section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header-section {
+  background: linear-gradient(rgba(0, 50, 40, 0.5), rgba(0, 70, 60, 0.5)), url('background.jpg') no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-section h1 {
+  font-size: 42px;
+  color: #ecfdf5;
+  font-weight: 700;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fefce8;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #d1fae5;
+}
+
+.btn {
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn:hover {
+  background-color: #0f766e;
+  transform: translateY(-3px);
+}
+
+.kontak-card {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.kontak-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kontak-info {
+  padding: 30px;
+  text-align: left;
+  flex: 1;
+  color: #ecfdf5;
+}
+
+.kontak-info h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.kontak-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.kontak-form label {
+  display: block;
+  margin: 12px 0 5px;
+  font-weight: 600;
+}
+
+.kontak-form input,
+.kontak-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ecfdf5;
+  margin-bottom: 15px;
+}
+
+.kontak-form input::placeholder,
+.kontak-form textarea::placeholder {
+  color: #bae6fd;
+}
+
+.halaman-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.halaman-item {
+  flex: 0 0 auto;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  scroll-snap-align: start;
+  color: #fefce8;
+  transition: transform 0.3s ease;
+}
+
+.halaman-item:hover {
+  transform: translateY(-6px);
+}
+
+.card-photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.social {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social a img {
+  width: 32px;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
+  transition: transform 0.2s ease;
+}
+
+.social a img:hover {
+  transform: scale(1.1);
+}
+
+.services-grid, .portofolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.service-item, .portofolio-item {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.service-item:hover, .portofolio-item:hover {
+  transform: translateY(-5px);
+}
+
+.map-container {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* Tambahan responsif untuk perangkat mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar .brand h2 {
+    font-size: 18px;
+  }
+
+  .header-section {
+    height: 280px;
+    padding: 20px;
+  }
+
+  .header-section h1 {
+    font-size: 28px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .section p,
+  .kontak-info p {
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .services-grid,
+  .portofolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kontak-card {
+    flex-direction: column;
+  }
+
+  .kontak-image img {
+    height: 200px;
+  }
+
+  .kontak-info {
+    padding: 20px;
+  }
+
+  .halaman-scroll {
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .halaman-item {
+    width: 240px;
+    padding: 15px;
+  }
+
+  .map-container {
+    height: 250px;
+  }
+
+  .social {
+    right: 10px;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .social a img {
+    width: 28px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="brand">
+      <img src="logo.png" alt="PT. Kayla Mas Lestari Logo">
+      <h2>PT. Kayla Mas Lestari</h2>
+    </div>
+    <div class="nav-links">
+      <a href="#home" id="nav-home" onclick="setActiveNav(this); scrollToSection('home')">HOME</a>
+      <a href="#services" id="nav-services" onclick="setActiveNav(this); scrollToSection('services')">SERVICES</a>
+      <a href="#portofolio" id="nav-portofolio" onclick="setActiveNav(this); scrollToSection('portofolio')">PORTOFOLIO</a>
+      <a href="#halaman" id="nav-halaman" onclick="setActiveNav(this); scrollToSection('halaman')">HALAMAN</a>
+      <a href="#kontak" id="nav-kontak" onclick="setActiveNav(this); scrollToSection('kontak')">KONTAK</a>
+    </div>
+  </div>
+
+  <!-- Section: Home -->
+  <div id="home" class="section">
+    <div class="header-section">
+      <h1>Spesialis Konstruksi Bangunan</h1>
+    </div>
+    <p>Percayakan pembangunan impian Anda kepada PT. Kayla Mas Lestari, Spesialis Kontraktor Bangunan terpercaya yang mengutamakan kualitas dan kepuasan klien.
+Kami tidak hanya membangun struktur, tetapi juga membangun kepercayaan melalui layanan profesional, desain yang fungsional, dan hasil akhir yang memuaskan. Dari proyek kecil hingga skala besar, tim kami siap mendampingi Anda mewujudkan bangunan yang kokoh, estetis, dan bernilai investasi jangka panjang.</p>
+    <a href="#services" class="btn" onclick="scrollToSection('services')">MORE INFO</a>
+  </div>
+
+  <!-- Section: Services -->
+  <div id="services" class="section" style="background-color: #1a2e1a;">
+    <h2>Our Services</h2>
+    <p>We offer a wide range of construction services tailored to meet your needs...</p>
+    <div class="services-grid">
+      <div class="service-item">
+        <img src="konstruksi.jpg" class="card-photo">
+        <h3>konstruksi beton</h3>
+        <p>Dari Fondasi hingga Struktur,Kami Ahlinya</p>
+      </div>
+      <div class="service-item">
+        <img src="pembangunan.jpg" class="card-photo">
+        <h3>pembangunan infrastruktur</h3>
+        <p>Kami Hadir untuk Mewujudkan Pembangunan Nyata.</p>
+      </div>
+      <div class="service-item">
+        <img src="desain.jpg" class="card-photo">
+        <h3>Desain Arsitektur</h3>
+        <p>Desain Cerdas, Arsitektur Berkualitas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: Portofolio -->
+  <div id="portofolio" class="section" style="background-color: #2d2b35;">
+    <h2>Our Portofolio</h2>
+    <p>Explore some of our completed projects.</p>
+    <div class="portofolio-grid">
+      <div class="portofolio-item">
+        <img src="private_villa.jpg" class="card-photo">
+        <h3>private villa</h3>
+        <p>Konstruksi villa pribadi dengan standar tinggi untuk gaya hidup yang lebih berkelas.</p>
+      </div>
+      <div class="portofolio-item">
+        <img src="perumahan.jpg" class="card-photo">
+        <h3>BTN SUBSIDI</h3>
+        <p>Sebagai kontraktor terpercaya, kami memahami proses dan standar BTN Subsidi – bangun rumah Anda tanpa ribet. </p>
+      </div>
+      <div class="portofolio-item">
+        <img src="villa.jpg" class="card-photo">
+        <h3>villa lumbung</h3>
+        <p>Desain khas, pengerjaan presisi – Villa Lumbung bukan hanya tempat tinggal, tapi karya arsitektur yang hidup.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: Halaman -->
+  <div id="halaman" class="section">
+    <h2>Why Choose Us</h2>
+    <div class="halaman-scroll">
+      <div class="halaman-item">
+        <img src="foto1.jpg" class="card-photo">
+        <h3>Personalized Planning</h3>
+        <p>Each project tailored to your vision.</p>
+      </div>
+      <div class="halaman-item">
+        <img src="foto2.jpg" class="card-photo">
+        <h3>Diverse Expertise</h3>
+        <p>From residential to commercial.</p>
+      </div>
+      <div class="halaman-item">
+        <img src="icon3.png" class="card-photo">
+        <h3>Trusted Professionals</h3>
+        <p>Certified engineers & skilled workers.</p>
+      </div>
+      <div class="halaman-item">
+        <img src="foto4.jpg" class="card-photo">
+        <h3>Project Support</h3>
+        <p>Real-time updates and help.</p>
+      </div>
+      <div class="halaman-item">
+        <img src="foto5.jpg" class="card-photo">
+        <h3>Quality Materials</h3>
+        <p>Durable and long-lasting materials.</p>
+      </div>
+      <div class="halaman-item">
+        <img src="icon6.png" class="card-photo">
+        <h3>Best Price Guarantee</h3>
+        <p>Value and quality combined.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: Our Office / Map -->
+  <div class="section">
+    <h2>Our Office</h2>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15868.632600346213!2d115.024871!3d-8.133576!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240b9e2c57cd3%3A0x4bc13b865d0a786b!2sGang%20Kutilang%2C%20Anturan%2C%20Buleleng%2C%20Bali%2081151%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1684155335587!5m2!1sen!2sid&maptype=satellite"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Section: Contact -->
+  <div id="kontak" class="section">
+    <h2>Contact Us</h2>
+    <div class="kontak-card">
+      <div class="kontak-image">
+        <img src="logo.png" alt="Contact Us Photo">
+      </div>
+      <div class="kontak-info">
+        <h3>PT. Kayla Mas Lestari</h3>
+        <p>  Terima kasih telah mengunjungi situs resmi PT. Kayla Mas Lestari. Kami siap melayani kebutuhan proyek Anda dengan dedikasi tinggi, profesionalisme, dan pengalaman di bidang konstruksi. Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan, membutuhkan konsultasi proyek, atau ingin menjalin kerja sama.</p>
+        <p><strong>Email:</strong> kaylamaslestaricorp@gmail.com</p>
+        <a class="btn" href="https://wa.me/6281234567890?text=Halo%20PT.%20Kayla%20Mas%20Lestari,%20saya%20ingin%20bertanya%20...">Hubungi via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function setActiveNav(el) {
+      document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>
